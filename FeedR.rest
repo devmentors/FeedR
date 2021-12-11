@@ -1,0 +1,24 @@
+@gatewayUrl = http://localhost:5000
+@aggregatorUrl = http://localhost:5010
+@notifierUrl = http://localhost:5020
+@newsFeedUrl = http://localhost:5030
+@quotesFeedUrl = http://localhost:5040
+@weatherFeedUrl = http://localhost:5050
+
+###
+GET {{gatewayUrl}}
+
+###
+GET {{aggregatorUrl}}
+
+###
+GET {{notifierUrl}}
+
+###
+GET {{newsFeedUrl}}
+
+###
+GET {{quotesFeedUrl}}
+
+###
+GET {{weatherFeedUrl}}
