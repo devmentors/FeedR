@@ -1,0 +1,49 @@
+name: FeedR
+services:
+- name: feedr-gateway
+  project: src/Gateway/FeedR.Gateway/FeedR.Gateway.csproj
+  bindings:
+  - port: 5000
+  env:
+    - name: ASPNETCORE_ENVIRONMENT
+      value: development
+      
+- name: feedr-aggregator
+  project: src/Aggregator/FeedR.Aggregator/FeedR.Aggregator.csproj
+  bindings:
+  - port: 5010
+  env:
+    - name: ASPNETCORE_ENVIRONMENT
+      value: development
+
+- name: feedr-notifier
+  project: src/Notifier/FeedR.Notifier/FeedR.Notifier.csproj
+  bindings:
+  - port: 5020
+  env:
+    - name: ASPNETCORE_ENVIRONMENT
+      value: development
+    
+- name: feedr-feeds-news
+  project: src/Feeds/News/FeedR.Feeds.News/FeedR.Feeds.News.csproj
+  bindings:
+  - port: 5030
+  env:
+    - name: ASPNETCORE_ENVIRONMENT
+      value: development
+
+- name: feedr-feeds-quotes
+  project: src/Feeds/Quotes/FeedR.Feeds.Quotes/FeedR.Feeds.Quotes.csproj
+  bindings:
+  - port: 5040
+  env:
+    - name: ASPNETCORE_ENVIRONMENT
+      value: development
+
+- name: feedr-feeds-weather
+  project: src/Feeds/Weather/FeedR.Feeds.Weather/FeedR.Feeds.Weather.csproj
+  bindings:
+  - port: 5050
+  env:
+    - name: ASPNETCORE_ENVIRONMENT
+      value: development
