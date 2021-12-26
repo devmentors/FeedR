@@ -1,5 +1,21 @@
 version: '3'
 
+services:
+  redis:
+    image: redis
+    container_name: redis
+    restart: unless-stopped
+    networks:
+      - feedr
+    ports:
+      - 6379:6379
+    volumes:
+      - redis:/data
+
 networks:
   feedr:
     name: feedr
+
+volumes:
+  redis:
+    driver: local  

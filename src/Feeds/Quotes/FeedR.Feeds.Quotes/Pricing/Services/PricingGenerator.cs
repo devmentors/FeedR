@@ -22,7 +22,7 @@ internal sealed class PricingGenerator : IPricingGenerator
         _logger = logger;
     }
 
-    public async Task StartAsync()
+    public async IAsyncEnumerable<CurrencyPair> StartAsync()
     {
         _isRunning = true;
         while (_isRunning)
@@ -31,7 +31,7 @@ internal sealed class PricingGenerator : IPricingGenerator
             {
                 if (!_isRunning)
                 {
-                    return;
+                    yield break;
                 }
 
                 var tick = NextTick();
@@ -41,6 +41,7 @@ internal sealed class PricingGenerator : IPricingGenerator
                 var timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
                 _logger.LogInformation($"Updated pricing for: {symbol}, {pricing:F} -> {newPricing:F} [{tick:F}]");
                 var currencyPair = new CurrencyPair(symbol, newPricing, timestamp);
+                yield return currencyPair;
                 await Task.Delay(TimeSpan.FromSeconds(1));
             }
         }

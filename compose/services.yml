@@ -69,4 +69,4 @@ services:
 networks:
   feedr:
     name: feedr
-    # external: true
+    external: true
