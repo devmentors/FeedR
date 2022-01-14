@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+option csharp_namespace = "FeedR.Feeds.Quotes.Pricing";
+
+package pricing.protos;
+
+service PricingFeed {
+  rpc GetSymbols(GetSymbolsRequest) returns (GetSymbolsResponse);
+  rpc SubscribePricing(PricingRequest) returns (stream PricingResponse);
+}
+
+message GetSymbolsRequest {
+}
+
+message GetSymbolsResponse {
+  repeated string symbols = 1;
+}
+
+message PricingRequest {
+  string symbol = 1;
+}
+
+message PricingResponse {
+  string symbol = 1;
+  int32 value = 2;
+  int64 timestamp = 3;
+}

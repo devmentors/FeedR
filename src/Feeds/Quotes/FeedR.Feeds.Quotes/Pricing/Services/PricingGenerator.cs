@@ -16,11 +16,14 @@ internal sealed class PricingGenerator : IPricingGenerator
     };
 
     private bool _isRunning;
+    public event EventHandler<CurrencyPair>? PricingUpdated;
 
     public PricingGenerator(ILogger<PricingGenerator> logger)
     {
         _logger = logger;
     }
+
+    public IEnumerable<string> GetSymbols() => _currencyPairs.Keys;
 
     public async IAsyncEnumerable<CurrencyPair> StartAsync()
     {
@@ -41,6 +44,7 @@ internal sealed class PricingGenerator : IPricingGenerator
                 var timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
                 _logger.LogInformation($"Updated pricing for: {symbol}, {pricing:F} -> {newPricing:F} [{tick:F}]");
                 var currencyPair = new CurrencyPair(symbol, newPricing, timestamp);
+                PricingUpdated?.Invoke(this, currencyPair);
                 yield return currencyPair;
                 await Task.Delay(TimeSpan.FromSeconds(1));
             }
@@ -52,7 +56,7 @@ internal sealed class PricingGenerator : IPricingGenerator
         _isRunning = false;
         return Task.CompletedTask;
     }
-
+    
     private decimal NextTick()
     {
         var sign = _random.Next(0, 2) == 0 ? -1 : 1;

@@ -7,7 +7,15 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\..\Shared\FeedR.Shared\FeedR.Shared.csproj" />
+        <ProjectReference Include="..\..\..\Shared\FeedR.Shared\FeedR.Shared.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Grpc.AspNetCore" Version="2.41.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Protobuf Include="Pricing\Protos\pricing.proto" GrpcServices="Server" />
     </ItemGroup>
 
 </Project>
