@@ -7,6 +7,7 @@ using FeedR.Shared.Streaming;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services
     .AddHostedService<PricingStreamBackgroundService>()
+    .AddHostedService<WeatherStreamBackgroundService>()
     .AddSerialization()
     .AddStreaming()
     .AddRedis(builder.Configuration)
