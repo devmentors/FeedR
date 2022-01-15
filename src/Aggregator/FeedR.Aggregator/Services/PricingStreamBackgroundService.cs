@@ -1,3 +1,4 @@
+using FeedR.Aggregator.Services.Models;
 using FeedR.Shared.Streaming;
 
 namespace FeedR.Aggregator.Services;
@@ -5,11 +6,14 @@ namespace FeedR.Aggregator.Services;
 internal sealed class PricingStreamBackgroundService : BackgroundService
 {
     private readonly IStreamSubscriber _subscriber;
+    private readonly IPricingHandler _pricingHandler;
     private readonly ILogger<PricingStreamBackgroundService> _logger;
 
-    public PricingStreamBackgroundService(IStreamSubscriber subscriber, ILogger<PricingStreamBackgroundService> logger)
+    public PricingStreamBackgroundService(IStreamSubscriber subscriber, IPricingHandler pricingHandler,
+        ILogger<PricingStreamBackgroundService> logger)
     {
         _subscriber = subscriber;
+        _pricingHandler = pricingHandler;
         _logger = logger;
     }
     
@@ -19,8 +23,7 @@ internal sealed class PricingStreamBackgroundService : BackgroundService
         {
             _logger.LogInformation($"Pricing '{currencyPair.Symbol}' = {currencyPair.Value:F}, " +
                                    $"timestamp: {currencyPair.Timestamp}");
+            _ = _pricingHandler.HandleAsync(currencyPair);
         });
     }
-    
-    private record CurrencyPair(string Symbol, decimal Value, long Timestamp);
 }

@@ -1,4 +1,5 @@
 using FeedR.Aggregator.Services;
+using FeedR.Shared.Messaging;
 using FeedR.Shared.Redis;
 using FeedR.Shared.Redis.Streaming;
 using FeedR.Shared.Serialization;
@@ -11,7 +12,9 @@ builder.Services
     .AddSerialization()
     .AddStreaming()
     .AddRedis(builder.Configuration)
-    .AddRedisStreaming();
+    .AddRedisStreaming()
+    .AddMessaging()
+    .AddSingleton<IPricingHandler, PricingHandler>();
     
 var app = builder.Build();
 
