@@ -17,9 +17,11 @@ internal sealed class NotifierMessagingBackgroundService : BackgroundService
     
     protected override Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        _messageSubscriber.SubscribeAsync<OrderPlaced>("orders", message =>
+        _messageSubscriber.SubscribeAsync<OrderPlaced>("orders", messageEnvelope =>
         {
-            _logger.LogInformation($"Order with ID: '{message.OrderId}' for symbol: '{message.Symbol}' has been placed.");
+            var correlationId = messageEnvelope.CorrelationId;
+            _logger.LogInformation($"Order with ID: '{messageEnvelope.Message.OrderId}' for symbol: '{messageEnvelope.Message.Symbol}' has been placed. " +
+                                   $"Correlation ID: '{correlationId}'.");
         });
         
         return Task.CompletedTask;
