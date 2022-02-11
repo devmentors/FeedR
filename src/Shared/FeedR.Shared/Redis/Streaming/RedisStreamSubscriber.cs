@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using FeedR.Shared.Serialization;
 using FeedR.Shared.Streaming;
 using StackExchange.Redis;

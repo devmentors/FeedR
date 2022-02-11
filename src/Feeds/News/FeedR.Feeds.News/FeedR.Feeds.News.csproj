@@ -9,5 +9,9 @@
     <ItemGroup>
       <ProjectReference Include="..\..\..\Shared\FeedR.Shared\FeedR.Shared.csproj" />
     </ItemGroup>
+    
+    <ItemGroup>
+        <InternalsVisibleTo Include="Feedr.Feeds.News.Tests.EndToEnd" />
+    </ItemGroup>
 
 </Project>

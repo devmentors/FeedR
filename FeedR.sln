@@ -37,6 +37,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Clients", "Clients", "{73D7
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FeedR.Clients.Console", "src\Clients\Console\FeedR.Clients.Console\FeedR.Clients.Console.csproj", "{F2D81437-F72D-4BA4-92A4-F3D4F02C72A7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Feedr.Feeds.News.Tests.EndToEnd", "src\Feeds\News\Feedr.Feeds.News.Tests.EndToEnd\Feedr.Feeds.News.Tests.EndToEnd.csproj", "{A6ABEF2B-C60A-403C-8BB6-C08F893B15E5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -78,6 +80,10 @@ Global
 		{F2D81437-F72D-4BA4-92A4-F3D4F02C72A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2D81437-F72D-4BA4-92A4-F3D4F02C72A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F2D81437-F72D-4BA4-92A4-F3D4F02C72A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6ABEF2B-C60A-403C-8BB6-C08F893B15E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6ABEF2B-C60A-403C-8BB6-C08F893B15E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6ABEF2B-C60A-403C-8BB6-C08F893B15E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6ABEF2B-C60A-403C-8BB6-C08F893B15E5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{7FA77029-BF01-4A1E-80DE-91A63C5684E1} = {6DC5BF4D-4F52-4C5A-9475-71A94088D333}
@@ -91,5 +97,6 @@ Global
 		{C554D03E-4FEC-4C3B-A6DC-607798ABCEBA} = {7FA77029-BF01-4A1E-80DE-91A63C5684E1}
 		{C003E6EF-C36F-4F29-87C4-D47754112C11} = {97D2D4A8-7F68-4D6A-8090-199DC73C2B1A}
 		{F2D81437-F72D-4BA4-92A4-F3D4F02C72A7} = {73D756FE-24FA-4F59-BE76-F2E3C456E74D}
+		{A6ABEF2B-C60A-403C-8BB6-C08F893B15E5} = {4C26177A-2A6E-44BB-8B75-2692E566F0B3}
 	EndGlobalSection
 EndGlobal
