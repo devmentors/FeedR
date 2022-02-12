@@ -1,4 +1,7 @@
+[![FeedR](https://cdn.devmentors.io/img/assets/feedr.jpeg)](https://www.youtube.com/watch?v=spnBzawswik)
+
 # FeedR
+
 **Sample** (and rather **simple**) .NET6 **microservices** solution which acts as the data aggregator for the different feeds.
 The **purpose** of this solution is to **explore** the latest framework and **play** with different patterns, tools & libraries that can be useful when building **distributed applications** (but not only).
 The overall repository structure consists of the following projects located under `src` directory:
@@ -13,7 +16,7 @@ The overall repository structure consists of the following projects located unde
 
 # Episodes
 
-The **implementation process** can be found on our [DevMentors YouTube](https://www.youtube.com/devmentors) channel, where we publish the **videos** about building this project.
+The **implementation process** can be found on our [DevMentors YouTube](https://www.youtube.com/playlist?list=PLqqD43D6Mqz0AIDkHqaZDKaEKXdfMiIAo) channel, where we publish the **videos** about building this project.
 You can navigate through this repository via specific `episode` tags which are related to the videos.
 
 # Requirements

@@ -1,6 +1,17 @@
 version: '3'
 
 services:
+  pulsar:
+    image: apachepulsar/pulsar
+    container_name: pulsar
+    restart: unless-stopped
+    networks:
+      - feedr
+    ports:
+      - 6650:6650
+      - 8080:8080
+    command: bin/pulsar standalone
+
   redis:
     image: redis
     container_name: redis
